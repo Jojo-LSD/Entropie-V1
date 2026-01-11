@@ -31,12 +31,12 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <div className="space-y-6 pb-8">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+    <div className="space-y-8 pb-8">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
           Tableaux de bord
         </h1>
-        <p className="text-gray-600">
+        <p className="text-slate-600 text-lg">
           Vue d'ensemble de votre activité
         </p>
       </div>

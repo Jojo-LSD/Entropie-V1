@@ -27,16 +27,16 @@ export const StockDonut = () => {
 
   const renderCustomLegend = (props: any) => {
     const { payload } = props;
-    
+
     return (
-      <div className="space-y-2">
+      <div className="space-y-3">
         {payload.map((entry: any, index: number) => (
-          <div key={`legend-${index}`} className="flex items-center space-x-2">
-            <div 
-              className="w-3 h-3 rounded-full"
+          <div key={`legend-${index}`} className="flex items-center space-x-3">
+            <div
+              className="w-3 h-3 rounded-full shadow-sm"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-slate-600 font-medium">
               {entry.value}: {data.find(d => d.category === entry.value)?.value}%
             </span>
           </div>
@@ -48,7 +48,7 @@ export const StockDonut = () => {
   return (
     <Card variant="elevated">
       <CardHeader>
-        <h3 className="text-lg font-semibold text-gray-900">Stock par catégorie</h3>
+        <h3 className="text-lg font-bold text-slate-900">Stock par catégorie</h3>
       </CardHeader>
       <CardContent>
         {isLoading ? (
@@ -73,20 +73,21 @@ export const StockDonut = () => {
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip 
+                  <Tooltip
                     formatter={(value) => [`${value}%`, 'Stock']}
                     contentStyle={{
-                      backgroundColor: 'white',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+                      backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '12px',
+                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                      backdropFilter: 'blur(8px)'
                     }}
                   />
                 </PieChart>
               </ResponsiveContainer>
             </div>
             <div className="ml-8">
-              <Legend 
+              <Legend
                 content={renderCustomLegend}
               />
             </div>

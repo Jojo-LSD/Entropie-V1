@@ -31,8 +31,8 @@ export const SalesChart = () => {
     <Card variant="elevated">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-gray-900">Évolution des ventes</h3>
-          <PeriodTabs 
+          <h3 className="text-lg font-bold text-slate-900">Évolution des ventes</h3>
+          <PeriodTabs
             selectedPeriod={selectedPeriod}
             onPeriodChange={setSelectedPeriod}
           />
@@ -47,38 +47,39 @@ export const SalesChart = () => {
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
-                <XAxis 
-                  dataKey="date" 
-                  stroke="#6b7280"
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <XAxis
+                  dataKey="date"
+                  stroke="#94a3b8"
                   fontSize={12}
-                  tickFormatter={(value) => new Date(value).toLocaleDateString('fr-FR', { 
-                    day: '2-digit', 
-                    month: '2-digit' 
+                  tickFormatter={(value) => new Date(value).toLocaleDateString('fr-FR', {
+                    day: '2-digit',
+                    month: '2-digit'
                   })}
                 />
-                <YAxis 
-                  stroke="#6b7280"
+                <YAxis
+                  stroke="#94a3b8"
                   fontSize={12}
                   tickFormatter={(value) => `${value}€`}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={(value) => [`${value}€`, 'Ventes']}
                   labelFormatter={(label) => new Date(label).toLocaleDateString('fr-FR')}
                   contentStyle={{
-                    backgroundColor: 'white',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '8px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+                    backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                    backdropFilter: 'blur(8px)'
                   }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="value" 
-                  stroke="#3b82f6" 
-                  strokeWidth={2}
-                  dot={{ fill: '#3b82f6', strokeWidth: 2 }}
-                  activeDot={{ r: 6, stroke: '#3b82f6', strokeWidth: 2, fill: 'white' }}
+                <Line
+                  type="monotone"
+                  dataKey="value"
+                  stroke="#8b5cf6"
+                  strokeWidth={3}
+                  dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, stroke: '#8b5cf6', strokeWidth: 2, fill: 'white' }}
                 />
               </LineChart>
             </ResponsiveContainer>

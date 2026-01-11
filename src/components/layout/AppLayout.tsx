@@ -8,9 +8,9 @@ export const AppLayout = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen gradient-bg">
       <Sidebar />
-      <main className={`flex-1 overflow-auto ${isHomePage ? '' : 'p-6'}`}>
+      <main className={`flex-1 overflow-auto ${isHomePage ? '' : 'p-6 md:p-8'}`}>
         <Outlet />
       </main>
       <Toaster position="top-right" />

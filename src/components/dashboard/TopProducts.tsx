@@ -10,10 +10,10 @@ const topProducts = [
 
 export const TopProducts = () => {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+    <div className="glass-strong rounded-2xl shadow-xl border border-slate-200/50 p-6">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-gray-900 mb-1">Top produits en stock</h3>
-        <p className="text-sm text-gray-600">Produits avec le plus de stock</p>
+        <h3 className="text-lg font-bold text-slate-900 mb-1">Top produits en stock</h3>
+        <p className="text-sm text-slate-600">Produits avec le plus de stock</p>
       </div>
 
       <ResponsiveContainer width="100%" height={300}>
@@ -22,24 +22,25 @@ export const TopProducts = () => {
           layout="vertical"
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis type="number" domain={[0, 1]} stroke="#9ca3af" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+          <XAxis type="number" domain={[0, 1]} stroke="#94a3b8" />
           <YAxis
             type="category"
             dataKey="name"
-            stroke="#9ca3af"
+            stroke="#94a3b8"
             width={150}
             tick={{ fontSize: 12 }}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              border: '1px solid #e5e7eb',
-              borderRadius: '8px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(8px)'
             }}
           />
-          <Bar dataKey="stock" fill="#3b82f6" radius={[0, 8, 8, 0]} />
+          <Bar dataKey="stock" fill="#8b5cf6" radius={[0, 12, 12, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

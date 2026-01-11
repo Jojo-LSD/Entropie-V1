@@ -22,12 +22,12 @@ export const Sidebar = () => {
 
   return (
     <>
-    <div className="w-64 bg-white border-r border-gray-200 h-screen flex flex-col">
+    <div className="w-64 glass-strong h-screen flex flex-col shadow-xl">
       {/* Header */}
-      <div className="p-4">
+      <div className="p-6">
         <div className="flex items-center space-x-3 mb-8">
-          <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-violet-600 rounded"></div>
-          <span className="text-lg font-semibold text-gray-900">Entropie</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl shadow-lg shadow-violet-500/30"></div>
+          <span className="text-lg font-bold text-slate-900">Entropie</span>
         </div>
       </div>
 
@@ -39,15 +39,15 @@ export const Sidebar = () => {
               <NavLink
                 to={item.href}
                 className={({ isActive }) =>
-                  `flex items-center px-3 py-2 text-sm rounded-lg transition-colors ${
+                  `flex items-center px-4 py-2.5 text-sm rounded-xl transition-all duration-200 ${
                     isActive
-                      ? 'bg-purple-50 text-purple-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/30'
+                      : 'text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm'
                   }`
                 }
               >
                 <item.icon className="mr-3 h-4 w-4" />
-                {item.name}
+                <span className="font-medium">{item.name}</span>
               </NavLink>
             </li>
           ))}
@@ -55,7 +55,7 @@ export const Sidebar = () => {
 
         {/* Projects Section */}
         <div className="mb-6">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">
             Tableaux de bords
           </h3>
           <ul className="space-y-1">
@@ -64,15 +64,15 @@ export const Sidebar = () => {
                 {item.href ? (
                   <NavLink
                     to={item.href}
-                    className="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors"
+                    className="flex items-center px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200"
                   >
                     <item.icon className="mr-3 h-4 w-4" />
-                    {item.name}
+                    <span className="font-medium">{item.name}</span>
                   </NavLink>
                 ) : (
-                  <button className="flex items-center w-full px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors">
+                  <button className="flex items-center w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200">
                     <item.icon className="mr-3 h-4 w-4" />
-                    {item.name}
+                    <span className="font-medium">{item.name}</span>
                   </button>
                 )}
               </li>
@@ -82,32 +82,32 @@ export const Sidebar = () => {
 
         {/* Resources Section */}
         <div className="mb-6">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">
             Automatisation
           </h3>
           <ul className="space-y-1">
             {resources.map((item) => (
               <li key={item.name}>
                 {item.name === 'Commande Vente' ? (
-                  <div className="flex items-center px-3 py-2 text-sm text-gray-400 rounded-lg cursor-not-allowed relative group">
+                  <div className="flex items-center px-4 py-2.5 text-sm text-slate-400 rounded-xl cursor-not-allowed relative group">
                     <item.icon className="mr-3 h-4 w-4" />
-                    <span>{item.name}</span>
-                    <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                    <span className="font-medium">{item.name}</span>
+                    <span className="ml-auto text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded-lg font-medium">
                       Bientôt
                     </span>
                   </div>
                 ) : item.href ? (
                   <NavLink
                     to={item.href}
-                    className="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors"
+                    className="flex items-center px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200"
                   >
                     <item.icon className="mr-3 h-4 w-4" />
-                    {item.name}
+                    <span className="font-medium">{item.name}</span>
                   </NavLink>
                 ) : (
-                  <button className="flex items-center w-full px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors">
+                  <button className="flex items-center w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200">
                     <item.icon className="mr-3 h-4 w-4" />
-                    {item.name}
+                    <span className="font-medium">{item.name}</span>
                   </button>
                 )}
               </li>
@@ -117,15 +117,15 @@ export const Sidebar = () => {
       </nav>
 
       {/* Bottom Section */}
-      <div className="p-4 space-y-3 border-t border-gray-200">
+      <div className="p-4 space-y-3 border-t border-white/20">
         {/* Reports Link */}
         <NavLink
           to="/reports"
           className={({ isActive }) =>
-            `flex items-center px-3 py-2 text-sm rounded-lg transition-all ${
+            `flex items-center px-4 py-2.5 text-sm rounded-xl transition-all duration-200 ${
               isActive
-                ? 'bg-gradient-to-r from-purple-600 to-violet-700 text-white shadow-lg'
-                : 'text-gray-600 hover:bg-purple-50 hover:text-purple-700'
+                ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/30'
+                : 'text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm'
             }`
           }
         >
@@ -136,56 +136,56 @@ export const Sidebar = () => {
         {/* User Profile */}
         <button
           onClick={() => setShowProfileModal(true)}
-          className="flex items-center space-x-3 w-full hover:bg-gray-50 rounded-lg p-3 transition-all group"
+          className="flex items-center space-x-3 w-full hover:bg-white/60 rounded-xl p-3 transition-all duration-200 group"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-full flex items-center justify-center ring-2 ring-purple-100 group-hover:ring-purple-300 transition-all">
+          <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center ring-2 ring-violet-100 group-hover:ring-violet-200 transition-all shadow-lg shadow-violet-500/30">
             <User className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 min-w-0 text-left">
-            <p className="text-sm font-semibold text-gray-900 truncate">Prodal</p>
-            <p className="text-xs text-gray-500 truncate">prodal@entropie.com</p>
+            <p className="text-sm font-semibold text-slate-900 truncate">Prodal</p>
+            <p className="text-xs text-slate-500 truncate">prodal@entropie.com</p>
           </div>
-          <Settings className="h-4 w-4 text-gray-400 group-hover:text-gray-600 transition-colors" />
+          <Settings className="h-4 w-4 text-slate-400 group-hover:text-slate-600 transition-colors" />
         </button>
       </div>
 
       {/* Profile Modal */}
       {showProfileModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-80 max-w-sm mx-4">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="glass-strong rounded-2xl p-6 w-80 max-w-sm mx-4 shadow-2xl">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/30">
                 <User className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Prodal</h3>
-                <p className="text-sm text-gray-500">prodal@entropie.com</p>
+                <h3 className="text-lg font-semibold text-slate-900">Prodal</h3>
+                <p className="text-sm text-slate-500">prodal@entropie.com</p>
               </div>
             </div>
-            
-            <div className="space-y-2">
-              <button className="flex items-center space-x-3 w-full px-3 py-2 text-left hover:bg-gray-100 rounded-lg transition-colors">
-                <Settings className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-700">Paramètres</span>
+
+            <div className="space-y-1">
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-white/60 rounded-xl transition-all duration-200">
+                <Settings className="h-4 w-4 text-slate-600" />
+                <span className="text-slate-700 font-medium">Paramètres</span>
               </button>
-              
-              <button className="flex items-center space-x-3 w-full px-3 py-2 text-left hover:bg-gray-100 rounded-lg transition-colors">
-                <HelpCircle className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-700">Aide</span>
+
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-white/60 rounded-xl transition-all duration-200">
+                <HelpCircle className="h-4 w-4 text-slate-600" />
+                <span className="text-slate-700 font-medium">Aide</span>
               </button>
-              
-              <hr className="my-2" />
-              
-              <button className="flex items-center space-x-3 w-full px-3 py-2 text-left hover:bg-red-50 rounded-lg transition-colors text-red-600">
+
+              <hr className="my-3 border-slate-200" />
+
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-red-50 rounded-xl transition-all duration-200 text-red-600">
                 <LogOut className="h-4 w-4" />
-                <span>Déconnexion</span>
+                <span className="font-medium">Déconnexion</span>
               </button>
             </div>
-            
-            <div className="mt-4 flex justify-end">
-              <button 
+
+            <div className="mt-6 flex justify-end">
+              <button
                 onClick={() => setShowProfileModal(false)}
-                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
+                className="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors"
               >
                 Fermer
               </button>
