@@ -9,11 +9,11 @@ export const Topbar = ({ onProfileClick }: TopbarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <div className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50 animate-fade-in-up" style={{ borderColor: 'var(--card-border)' }}>
+    <div className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50" style={{ borderColor: 'var(--card-border)' }}>
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo et nom */}
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md hover-glow transition-all duration-300">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md transition-all duration-300">
             <div className="w-6 h-6 bg-white/30 rounded"></div>
           </div>
           <div>

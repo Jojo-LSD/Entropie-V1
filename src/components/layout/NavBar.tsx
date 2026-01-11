@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { Home, Grid3x3 as Grid3X3, Activity, Table, ShoppingCart, FileText, BarChart3, MessageSquare } from 'lucide-react';
 
 const navItems = [
-  { name: 'Home', href: '/', icon: Home },
   { name: 'Chat Assistant', href: '/chat', icon: MessageSquare },
+  { name: 'Home', href: '/', icon: Home },
   { name: 'Dashboard Interactif', href: '/interactive-dashboard', icon: Activity },
   { name: 'Tables', href: '/tables', icon: Table },
   { name: 'Commande Achat', href: '/commande-achat', icon: ShoppingCart },
@@ -12,7 +12,7 @@ const navItems = [
 
 export const NavBar = () => {
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-2xl border shadow-sm animate-fade-in-up" style={{ borderColor: 'var(--card-border)' }}>
+    <div className="bg-white/90 backdrop-blur-md rounded-2xl border shadow-sm" style={{ borderColor: 'var(--card-border)' }}>
       <div className="px-6">
         <nav className="flex items-center space-x-1 overflow-x-auto">
           {navItems.map((item) => {

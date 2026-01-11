@@ -120,9 +120,9 @@ export const InteractiveDashboard = () => {
     <div className="min-h-full bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="p-6 md:p-8 pb-0">
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-6 animate-fade-in-up">
+          <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg hover-glow">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Activity className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -148,7 +148,7 @@ export const InteractiveDashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden animate-scale-in">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
             <div className="flex items-center space-x-2 text-white">
               <Database className="h-5 w-5" />

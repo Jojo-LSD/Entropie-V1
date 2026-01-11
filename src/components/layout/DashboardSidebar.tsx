@@ -38,11 +38,11 @@ export const DashboardSidebar = ({ selectedCategory, onCategoryChange }: Dashboa
             onClick={() => onCategoryChange(category.id)}
             className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-xl transition-all duration-200 ${
               selectedCategory === category.id
-                ? 'bg-gradient-to-r from-orange-50 to-red-50 text-orange-600 border border-orange-200 shadow-sm'
+                ? 'bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-600 border border-blue-200 shadow-sm'
                 : 'hover:bg-gray-50/50'
             }`}
             style={{
-              color: selectedCategory === category.id ? 'var(--primary-orange)' : 'var(--text-secondary)'
+              color: selectedCategory === category.id ? '#3B82F6' : 'var(--text-secondary)'
             }}
           >
             <Icon className="h-5 w-5 flex-shrink-0" />

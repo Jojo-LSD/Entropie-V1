@@ -151,8 +151,8 @@ export const CommandeAchat = () => {
     <div className="min-h-full bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="p-8 pb-8">
         <div className="mb-6">
-          <div className="flex items-center space-x-3 mb-6 animate-fade-in-up">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg hover-glow">
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
               <Package className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -205,10 +205,10 @@ export const CommandeAchat = () => {
           </div>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm p-6 mb-6 animate-scale-in hover-lift">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md hover-glow">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
                 <UploadCloud className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -256,7 +256,7 @@ export const CommandeAchat = () => {
                 Envoyer
               </button>
               {isUploading && (
-                <div className="flex items-start px-3 py-2 rounded-lg border border-blue-200 bg-blue-50 text-blue-800 shadow-sm space-x-2 animate-fade-in-up">
+                <div className="flex items-start px-3 py-2 rounded-lg border border-blue-200 bg-blue-50 text-blue-800 shadow-sm space-x-2">
                   <Loader2 className="h-4 w-4 mt-0.5 animate-spin" />
                   <div className="flex flex-col">
                     <span className="text-sm font-medium">Vérification de document en cours</span>
@@ -279,7 +279,7 @@ export const CommandeAchat = () => {
           </div>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden animate-slide-in-right">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
             <h2 className="text-lg font-semibold text-white flex items-center">
               <Package className="h-5 w-5 mr-2" />

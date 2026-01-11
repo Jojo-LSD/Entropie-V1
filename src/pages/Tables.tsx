@@ -290,7 +290,7 @@ export const Tables = () => {
       </div>
 
       <div className="px-6 pt-6 bg-gradient-to-br from-gray-50 to-gray-100 sticky top-0 z-10">
-        <div className="flex flex-col gap-4 border-b border-gray-200 pb-4 animate-fade-in-up">
+        <div className="flex flex-col gap-4 border-b border-gray-200 pb-4">
           <div className="flex gap-2">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -324,7 +324,7 @@ export const Tables = () => {
 
       <div className="flex-1 overflow-auto">
         <div className="p-6 pt-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden animate-scale-in hover-lift">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden">
             {activeTable === 'articles' && renderArticlesTable()}
             {activeTable === 'clients' && renderClientsTable()}
             {activeTable === 'fournisseurs' && renderFournisseursTable()}
