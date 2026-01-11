@@ -174,19 +174,17 @@ export const Home = () => {
         <ChatAssistantSidebar onNewChat={handleNewConversation} />
       </div>
 
-      <div className="flex-1 flex flex-col gap-4">
-        {/* Header séparé */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl border shadow-sm px-6 py-3" style={{ borderColor: 'var(--card-border)' }}>
-          <button className="flex items-center space-x-2 px-2 py-1 hover:bg-gray-50 rounded-lg transition-all">
+      <div className="flex-1 bg-gradient-to-br from-orange-50/30 via-white/90 to-red-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
+        {/* Header */}
+        <div className="flex items-center px-8 py-4 border-b border-gray-100">
+          <button className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all">
             <span className="text-sm font-semibold text-gray-700">LLM v5</span>
             <ChevronDown className="h-4 w-4 text-gray-500" />
           </button>
         </div>
 
-        {/* Bloc principal du chat */}
-        <div className="flex-1 bg-gradient-to-br from-orange-50/30 via-white/90 to-red-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
-          {/* Main Content */}
-          <div className="flex flex-col h-full px-8 py-6 relative z-10">
+        {/* Main Content */}
+        <div className="flex flex-col h-[calc(100%-5rem)] px-8 py-6 relative z-10">
           {messages.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center space-y-8">
               {/* Logo */}
@@ -279,6 +277,5 @@ export const Home = () => {
         </div>
       </div>
     </div>
-  </div>
   );
 };

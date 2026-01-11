@@ -13,7 +13,10 @@ export const AppLayout = () => {
   return (
     <div className="min-h-screen gradient-bg">
       <Topbar onProfileClick={() => setShowProfileModal(true)} />
-      <NavBar />
+
+      <div className="px-6 pt-4">
+        <NavBar />
+      </div>
 
       <main className="p-6 md:p-8">
         <Outlet />
