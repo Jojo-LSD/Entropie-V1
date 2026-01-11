@@ -14,7 +14,7 @@ export const AppLayout = () => {
     <div className="min-h-screen gradient-bg">
       <Topbar onProfileClick={() => setShowProfileModal(true)} />
 
-      <div className="px-6 pt-4">
+      <div className="sticky top-0 z-40 px-6 pt-4 pb-4 gradient-bg">
         <NavBar />
       </div>
 
