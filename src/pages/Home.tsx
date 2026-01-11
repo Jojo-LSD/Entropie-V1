@@ -169,12 +169,12 @@ export const Home = () => {
   };
 
   return (
-    <div className="flex gap-6 h-full p-6">
-      <div className="flex-shrink-0 h-full">
+    <div className="flex gap-6 h-[calc(100vh-12rem)]">
+      <div className="flex-shrink-0">
         <ChatAssistantSidebar onNewChat={handleNewConversation} />
       </div>
 
-      <div className="flex-1 h-full bg-gradient-to-br from-lime-50/30 via-white/90 to-green-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
+      <div className="flex-1 bg-gradient-to-br from-orange-50/30 via-white/90 to-red-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
         {/* Header */}
         <div className="flex items-center px-8 py-4 border-b border-gray-100">
           <button className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all">
@@ -189,9 +189,9 @@ export const Home = () => {
             <div className="flex-1 flex flex-col items-center justify-center space-y-8">
               {/* Logo */}
               <div className="relative">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center animate-pulse">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center animate-pulse">
                   <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
                       <Sparkles className="h-8 w-8 text-white" />
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export const Home = () => {
           <div className="max-w-4xl mx-auto w-full">
             <div className="bg-white border border-gray-200 rounded-2xl shadow-lg">
               <div className="flex items-center px-5 py-4 space-x-3">
-                <Sparkles className="h-5 w-5 text-lime-500 flex-shrink-0" />
+                <Sparkles className="h-5 w-5 text-orange-500 flex-shrink-0" />
                 <input
                   type="text"
                   value={inputValue}
@@ -258,7 +258,7 @@ export const Home = () => {
                   <button
                     onClick={handleSubmit}
                     disabled={isStreaming || !inputValue.trim()}
-                    className="bg-lime-500 hover:bg-lime-600 text-white rounded-full p-3 transition-all shadow-md hover:shadow-lg flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="bg-orange-500 hover:bg-orange-600 text-white rounded-full p-3 transition-all shadow-md hover:shadow-lg flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <Send className="h-4 w-4" />
                   </button>
