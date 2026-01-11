@@ -7,8 +7,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className = '', variant = 'default', ...props }, ref) => {
     const variants = {
-      default: 'bg-white/40 backdrop-blur-sm rounded-xl border transition-all duration-200',
-      elevated: 'bg-white/40 backdrop-blur-sm rounded-xl border hover:shadow-md hover:bg-white/50 transition-all duration-200'
+      default: 'bg-white/70 backdrop-blur-sm rounded-xl border transition-all duration-200',
+      elevated: 'bg-white/70 backdrop-blur-sm rounded-xl border hover:shadow-md hover:bg-white/80 transition-all duration-200'
     };
 
     return (
