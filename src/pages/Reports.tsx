@@ -61,7 +61,7 @@ export const Reports = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6 pb-8">
       <div className="flex items-center space-x-4">
-        <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
+        <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
           <FileText className="h-7 w-7 text-white" />
         </div>
         <div>
