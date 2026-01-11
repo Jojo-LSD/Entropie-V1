@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Grid3x3 as Grid3X3, Activity, Table, ShoppingCart, FileText, BarChart3 } from 'lucide-react';
+import { Home, Grid3x3 as Grid3X3, Activity, Table, ShoppingCart, FileText, BarChart3, MessageSquare } from 'lucide-react';
 
 const navItems = [
-  { name: 'Dashboard', href: '/', icon: Home },
-  { name: 'Tous les tableaux de bords', href: '/dashboard', icon: Grid3X3 },
+  { name: 'Home', href: '/', icon: Home },
+  { name: 'Chat Assistant', href: '/chat', icon: MessageSquare },
+  { name: 'Tous les tableaux de bords', href: '/tous-les-tableaux', icon: Grid3X3 },
   { name: 'Dashboard Interactif', href: '/interactive-dashboard', icon: Activity },
   { name: 'Tables', href: '/tables', icon: Table },
   { name: 'Commande Achat', href: '/commande-achat', icon: ShoppingCart },

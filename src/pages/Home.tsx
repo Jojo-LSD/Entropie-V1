@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Paperclip, Send, Zap } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { MessageBubble } from '../components/chat/MessageBubble';
+import { ConversationSidebar } from '../components/layout/ConversationSidebar';
 
 const suggestions = [
   "Commandes incohérentes",
@@ -15,11 +16,19 @@ const LLM_MODEL = import.meta.env.VITE_LM_STUDIO_MODEL || 'local-model';
 const SYSTEM_PROMPT =
   "Tu es l'assistant IA d'Entropie. Réponds en français, de manière claire et concise.";
 
+interface Conversation {
+  id: string;
+  title: string;
+  timestamp: Date;
+}
+
 export const Home = () => {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [selectedConversation, setSelectedConversation] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -98,6 +107,15 @@ export const Home = () => {
     }
   };
 
+  const handleNewConversation = () => {
+    setMessages([]);
+    setSelectedConversation(null);
+  };
+
+  const handleConversationSelect = (conversationId: string) => {
+    setSelectedConversation(conversationId);
+  };
+
   const handleSubmit = async () => {
     const trimmed = inputValue.trim();
     if (!trimmed || isStreaming) return;
@@ -123,6 +141,16 @@ export const Home = () => {
     setMessages((prev) => [...prev, userMessage, assistantMessage]);
     setIsStreaming(true);
 
+    if (!selectedConversation && messages.length === 0) {
+      const newConversation: Conversation = {
+        id: Date.now().toString(),
+        title: trimmed.substring(0, 30) + (trimmed.length > 30 ? '...' : ''),
+        timestamp: new Date(),
+      };
+      setConversations((prev) => [newConversation, ...prev]);
+      setSelectedConversation(newConversation.id);
+    }
+
     try {
       await streamChatCompletion(trimmed, assistantId);
     } catch (err) {
@@ -141,16 +169,24 @@ export const Home = () => {
   };
 
   return (
-    <div className="h-full bg-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-red-400 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-orange-400 rounded-full blur-3xl"></div>
-      </div>
+    <div className="flex gap-6 h-[calc(100vh-180px)]">
+      <ConversationSidebar
+        conversations={conversations}
+        selectedConversation={selectedConversation}
+        onConversationSelect={handleConversationSelect}
+        onNewConversation={handleNewConversation}
+      />
 
-      {/* Main Content */}
-      <div className="flex flex-col h-full px-8 py-10 relative z-10">
+      <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl border shadow-lg relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-red-400 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-orange-400 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex flex-col h-full px-8 py-10 relative z-10">
         <div className="text-center mb-10">
           <h1 className="text-5xl font-bold text-gray-900 mb-3">
             Assistant Entropie
@@ -219,6 +255,7 @@ export const Home = () => {
             </button>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

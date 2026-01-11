@@ -9,10 +9,12 @@ import { TopClients } from '../components/dashboard/TopClients';
 import { MarginEvolution } from '../components/dashboard/MarginEvolution';
 import { dashboardService } from '../api/dashboardApi';
 import { SkeletonCard } from '../components/ui/Skeleton';
+import { DashboardSidebar } from '../components/layout/DashboardSidebar';
 
 export const Dashboard = () => {
   const [kpis, setKpis] = useState<KPI[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('transport');
 
   useEffect(() => {
     const fetchKpis = async () => {
@@ -30,16 +32,37 @@ export const Dashboard = () => {
     fetchKpis();
   }, []);
 
+  const getCategoryTitle = () => {
+    const titles: { [key: string]: string } = {
+      transport: 'KPI Transport',
+      entrepot: 'KPI Entrepôt / Stockage',
+      commandes: 'KPI Commandes / Fulfillment',
+      achats: 'KPI Achats & Approvisionnement',
+      qualite: 'KPI Qualité & Conformité',
+      financiers: 'KPI Financiers Logistiques',
+      retours: 'KPI Retours & Reverse Logistics',
+      performance: 'KPI Performance & Pilotage Global',
+    };
+    return titles[selectedCategory] || 'Tableaux de bord';
+  };
+
   return (
-    <div className="space-y-8 pb-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Tableaux de bord
-        </h1>
-        <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-          Vue d'ensemble de votre activité
-        </p>
-      </div>
+    <div className="flex gap-6">
+      <DashboardSidebar
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
+
+      <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl border p-8 shadow-lg" style={{ borderColor: 'var(--card-border)' }}>
+        <div className="space-y-8">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+              {getCategoryTitle()}
+            </h1>
+            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+              Vue d'ensemble de votre activité
+            </p>
+          </div>
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -70,6 +93,8 @@ export const Dashboard = () => {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         <TopClients />
         <MarginEvolution />
+      </div>
+        </div>
       </div>
     </div>
   );

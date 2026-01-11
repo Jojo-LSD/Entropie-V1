@@ -7,7 +7,7 @@ import { User, Settings, HelpCircle, LogOut } from 'lucide-react';
 
 export const AppLayout = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isChatPage = location.pathname === '/chat';
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ export const AppLayout = () => {
       <Topbar onProfileClick={() => setShowProfileModal(true)} />
       <NavBar />
 
-      <main className={`${isHomePage ? '' : 'p-6 md:p-8'}`}>
+      <main className="p-6 md:p-8">
         <Outlet />
       </main>
 
