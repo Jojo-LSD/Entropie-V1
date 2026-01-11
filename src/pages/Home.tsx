@@ -3,7 +3,6 @@ import { Paperclip, Send, ChevronDown, MoreVertical, Mic, FileText, Sparkles } f
 import { ChatMessage } from '../types';
 import { MessageBubble } from '../components/chat/MessageBubble';
 import { ChatAssistantSidebar } from '../components/layout/ChatAssistantSidebar';
-import { SuggestionCards } from '../components/chat/SuggestionCards';
 
 const suggestions = [
   "Commandes incohérentes",
@@ -179,15 +178,11 @@ export const Home = () => {
         {/* Header */}
         <div className="flex items-center justify-between px-8 py-4 border-b border-gray-100">
           <button className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all">
-            <span className="text-sm font-semibold text-gray-700">EchoAI v5.5</span>
+            <span className="text-sm font-semibold text-gray-700">LLM v5</span>
             <ChevronDown className="h-4 w-4 text-gray-500" />
           </button>
 
           <div className="flex items-center space-x-3">
-            <button className="px-4 py-2 bg-lime-400 hover:bg-lime-500 text-gray-900 font-semibold text-sm rounded-lg transition-all flex items-center space-x-2">
-              <Sparkles className="h-4 w-4" />
-              <span>Upgrade free plan to full version</span>
-            </button>
             <button className="p-2 hover:bg-gray-100 rounded-lg transition-all">
               <MoreVertical className="h-5 w-5 text-gray-600" />
             </button>
@@ -211,16 +206,10 @@ export const Home = () => {
 
               {/* Welcome Text */}
               <div className="text-center space-y-3">
-                <h1 className="text-4xl font-bold text-gray-900">Welcome, Maxim</h1>
+                <h1 className="text-4xl font-bold text-gray-900">Welcome, how can I help you</h1>
                 <p className="text-base text-gray-600 max-w-lg">
-                  Start by scripting a task, and let the chat take over.<br />
-                  Not sure where to start?
+                  Start by scripting a task, and let the chat take over.
                 </p>
-              </div>
-
-              {/* Suggestion Cards */}
-              <div className="w-full max-w-4xl">
-                <SuggestionCards onSelect={(title) => setInputValue(title)} />
               </div>
             </div>
           ) : (
@@ -287,7 +276,7 @@ export const Home = () => {
               <p className="text-xs text-red-600 text-center mt-3">{error}</p>
             ) : (
               <p className="text-xs text-gray-500 text-center mt-3">
-                {isStreaming ? "L'assistant est en train de répondre…" : "EchoAI may make errors. Check important information."}
+                {isStreaming ? "L'assistant est en train de répondre…" : "LLM may make errors. Check important information."}
               </p>
             )}
           </div>
