@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Paperclip, Send, Zap } from 'lucide-react';
+import { Paperclip, Send, ChevronDown, MoreVertical, Mic, FileText, Sparkles } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { MessageBubble } from '../components/chat/MessageBubble';
-import { ConversationSidebar } from '../components/layout/ConversationSidebar';
+import { ChatAssistantSidebar } from '../components/layout/ChatAssistantSidebar';
+import { SuggestionCards } from '../components/chat/SuggestionCards';
 
 const suggestions = [
   "Commandes incohérentes",
@@ -169,93 +170,128 @@ export const Home = () => {
   };
 
   return (
-    <div className="flex gap-6 h-[calc(100vh-180px)]">
-      <ConversationSidebar
-        conversations={conversations}
-        selectedConversation={selectedConversation}
-        onConversationSelect={handleConversationSelect}
-        onNewConversation={handleNewConversation}
-      />
+    <div className="flex gap-6 h-[calc(100vh-8rem)]">
+      <div className="flex-shrink-0">
+        <ChatAssistantSidebar onNewChat={handleNewConversation} />
+      </div>
 
-      <div className="flex-1 bg-white/40 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-32 w-24 h-24 bg-red-400 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-orange-400 rounded-full blur-3xl"></div>
+      <div className="flex-1 bg-gradient-to-br from-lime-50/30 via-white/90 to-green-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
+        {/* Header */}
+        <div className="flex items-center justify-between px-8 py-4 border-b border-gray-100">
+          <button className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all">
+            <span className="text-sm font-semibold text-gray-700">EchoAI v5.5</span>
+            <ChevronDown className="h-4 w-4 text-gray-500" />
+          </button>
+
+          <div className="flex items-center space-x-3">
+            <button className="px-4 py-2 bg-lime-400 hover:bg-lime-500 text-gray-900 font-semibold text-sm rounded-lg transition-all flex items-center space-x-2">
+              <Sparkles className="h-4 w-4" />
+              <span>Upgrade free plan to full version</span>
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-lg transition-all">
+              <MoreVertical className="h-5 w-5 text-gray-600" />
+            </button>
+          </div>
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col h-full px-8 py-10 relative z-10">
-        <div className="text-center mb-10">
-          <h1 className="text-5xl font-bold text-gray-900 mb-3">
-            Assistant Entropie
-          </h1>
-          <p className="text-sm text-gray-500">Votre LLM local en streaming, directement dans l’app.</p>
-        </div>
-
-        <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-6">
-          <div className="flex-1 min-h-[280px] max-h-[520px] overflow-y-auto rounded-3xl border border-gray-200/70 bg-white/70 backdrop-blur-sm shadow-lg p-6 space-y-6">
-            {messages.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-sm text-gray-400">
-                Démarrez une conversation avec votre assistant.
+        <div className="flex flex-col h-[calc(100%-5rem)] px-8 py-6 relative z-10">
+          {messages.length === 0 ? (
+            <div className="flex-1 flex flex-col items-center justify-center space-y-8">
+              {/* Logo */}
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center animate-pulse">
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center">
+                      <Sparkles className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                </div>
               </div>
-            ) : (
-              messages.map((message) => (
-                <MessageBubble key={message.id} message={message} />
-              ))
-            )}
-            <div ref={messagesEndRef} />
-          </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-2xl px-6 py-4 shadow-xl transition-shadow">
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">
-                <Paperclip className="h-5 w-5" />
-              </button>
+              {/* Welcome Text */}
+              <div className="text-center space-y-3">
+                <h1 className="text-4xl font-bold text-gray-900">Welcome, Maxim</h1>
+                <p className="text-base text-gray-600 max-w-lg">
+                  Start by scripting a task, and let the chat take over.<br />
+                  Not sure where to start?
+                </p>
+              </div>
 
-              <div className="flex-1">
+              {/* Suggestion Cards */}
+              <div className="w-full max-w-4xl">
+                <SuggestionCards onSelect={(title) => setInputValue(title)} />
+              </div>
+            </div>
+          ) : (
+            <div className="flex-1 overflow-y-auto mb-6">
+              <div className="max-w-4xl mx-auto space-y-6">
+                {messages.map((message) => (
+                  <MessageBubble key={message.id} message={message} />
+                ))}
+                <div ref={messagesEndRef} />
+              </div>
+            </div>
+          )}
+
+          {/* Input Area */}
+          <div className="max-w-4xl mx-auto w-full">
+            <div className="bg-white border border-gray-200 rounded-2xl shadow-lg">
+              <div className="flex items-center px-5 py-4 space-x-3">
+                <Sparkles className="h-5 w-5 text-lime-500 flex-shrink-0" />
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-                  placeholder="Posez votre question..."
-                  className="w-full bg-transparent text-gray-900 placeholder-gray-400 focus:outline-none text-base"
+                  placeholder="Start your request, and let orion handle everything"
+                  className="flex-1 bg-transparent text-gray-900 placeholder-gray-400 focus:outline-none text-sm"
                   disabled={isStreaming}
                 />
               </div>
 
-              <button
-                onClick={handleSubmit}
-                disabled={isStreaming || !inputValue.trim()}
-                className="bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-full p-3 transition-all shadow-lg hover:shadow-xl flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                <Send className="h-5 w-5" />
-              </button>
+              <div className="flex items-center justify-between px-5 py-3 border-t border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <button className="p-2 hover:bg-gray-50 rounded-lg transition-all">
+                    <Paperclip className="h-5 w-5 text-gray-500" />
+                  </button>
+                  <button className="p-2 hover:bg-gray-50 rounded-lg transition-all">
+                    <FileText className="h-5 w-5 text-gray-500" />
+                  </button>
+                  <button className="flex items-center space-x-2 px-3 py-2 hover:bg-gray-50 rounded-lg transition-all">
+                    <Sparkles className="h-4 w-4 text-gray-600" />
+                    <span className="text-sm text-gray-700 font-medium">Reasoning</span>
+                  </button>
+                  <button className="flex items-center space-x-2 px-3 py-2 hover:bg-gray-50 rounded-lg transition-all">
+                    <span className="text-sm text-gray-700 font-medium">Writing Style</span>
+                    <ChevronDown className="h-4 w-4 text-gray-500" />
+                  </button>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <button className="p-2 hover:bg-gray-50 rounded-lg transition-all">
+                    <Mic className="h-5 w-5 text-gray-500" />
+                  </button>
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isStreaming || !inputValue.trim()}
+                    className="bg-lime-500 hover:bg-lime-600 text-white rounded-full p-3 transition-all shadow-md hover:shadow-lg flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    <Send className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
             </div>
+
+            {error ? (
+              <p className="text-xs text-red-600 text-center mt-3">{error}</p>
+            ) : (
+              <p className="text-xs text-gray-500 text-center mt-3">
+                {isStreaming ? "L'assistant est en train de répondre…" : "EchoAI may make errors. Check important information."}
+              </p>
+            )}
           </div>
-
-          {error ? (
-            <p className="text-xs text-red-600 text-center">{error}</p>
-          ) : isStreaming ? (
-            <p className="text-xs text-gray-500 text-center">L’assistant est en train de répondre…</p>
-          ) : null}
         </div>
-
-        <div className="mt-8 flex flex-wrap gap-3 justify-center">
-          {suggestions.map((suggestion, index) => (
-            <button
-              key={index}
-              onClick={() => setInputValue(suggestion)}
-              className="bg-white border border-gray-200 hover:border-orange-300 hover:bg-orange-50 text-gray-700 px-5 py-2.5 rounded-full transition-all hover:shadow-md flex items-center space-x-2"
-            >
-              <Zap className="h-4 w-4 text-orange-500" />
-              <span className="text-sm font-medium">{suggestion}</span>
-            </button>
-          ))}
-        </div>
-      </div>
       </div>
     </div>
   );
