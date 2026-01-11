@@ -54,17 +54,8 @@ export const Dashboard = () => {
       />
 
       <div className="flex-1 space-y-8">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
-            {getCategoryTitle()}
-          </h1>
-          <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            Vue d'ensemble de votre activité
-          </p>
-        </div>
-
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {isLoading ? (
             Array.from({ length: 8 }).map((_, index) => (
               <SkeletonCard key={index} />

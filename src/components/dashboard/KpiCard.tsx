@@ -21,7 +21,6 @@ const getKpiColor = (index: number) => {
 
 export const KpiCard = ({ kpi }: KpiCardProps) => {
   const IconComponent = (Icons as any)[kpi.icon] || TrendingUp;
-  const isPositive = kpi.changeType === 'increase';
   const colorScheme = getKpiColor(parseInt(kpi.id) || 0);
 
   return (
@@ -34,19 +33,7 @@ export const KpiCard = ({ kpi }: KpiCardProps) => {
 
           <div className="flex-1 min-w-0">
             <h3 className="text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{kpi.title}</h3>
-            <div className="flex items-baseline gap-3">
-              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{kpi.value}</p>
-              <div className={`flex items-center space-x-1 text-xs font-semibold ${
-                isPositive ? 'text-green-600' : 'text-red-600'
-              }`}>
-                {isPositive ? (
-                  <TrendingUp className="h-3 w-3" />
-                ) : (
-                  <TrendingDown className="h-3 w-3" />
-                )}
-                <span>{Math.abs(kpi.change)}%</span>
-              </div>
-            </div>
+            <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{kpi.value}</p>
           </div>
         </div>
       </CardContent>
