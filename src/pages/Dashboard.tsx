@@ -20,7 +20,7 @@ export const Dashboard = () => {
     const fetchKpis = async () => {
       setIsLoading(true);
       try {
-        const kpiData = await dashboardService.getKPIs();
+        const kpiData = await dashboardService.getKPIs(selectedCategory);
         setKpis(kpiData);
       } catch (error) {
         console.error('Failed to fetch KPIs:', error);
@@ -30,7 +30,7 @@ export const Dashboard = () => {
     };
 
     fetchKpis();
-  }, []);
+  }, [selectedCategory]);
 
   const getCategoryTitle = () => {
     const titles: { [key: string]: string } = {

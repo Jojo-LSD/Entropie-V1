@@ -1,12 +1,12 @@
 import { KPI, SalesData, StockData, Period } from '../types';
-import { mockKPIs, mockSalesData, mockStockData } from '../mock/dashboard';
+import { mockKPIsByCategory, mockSalesData, mockStockData } from '../mock/dashboard';
 
 export class DashboardService {
   // Future: Replace with actual API calls to PostgreSQL via FastAPI
-  async getKPIs(): Promise<KPI[]> {
+  async getKPIs(category: string = 'transport'): Promise<KPI[]> {
     // Mock delay to simulate API call
     await new Promise(resolve => setTimeout(resolve, 800));
-    return mockKPIs;
+    return mockKPIsByCategory[category] || mockKPIsByCategory.transport;
   }
 
   async getSalesData(period: Period): Promise<SalesData[]> {
