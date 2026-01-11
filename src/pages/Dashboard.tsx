@@ -53,47 +53,45 @@ export const Dashboard = () => {
         onCategoryChange={setSelectedCategory}
       />
 
-      <div className="flex-1 bg-white/95 backdrop-blur-sm rounded-2xl border p-8 shadow-sm" style={{ borderColor: 'var(--card-border)' }}>
-        <div className="space-y-8">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
-              {getCategoryTitle()}
-            </h1>
-            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-              Vue d'ensemble de votre activité
-            </p>
-          </div>
+      <div className="flex-1 space-y-8">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            {getCategoryTitle()}
+          </h1>
+          <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
+            Vue d'ensemble de votre activité
+          </p>
+        </div>
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {isLoading ? (
-          Array.from({ length: 8 }).map((_, index) => (
-            <SkeletonCard key={index} />
-          ))
-        ) : (
-          kpis.map(kpi => (
-            <KpiCard key={kpi.id} kpi={kpi} />
-          ))
-        )}
-      </div>
+        {/* KPI Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {isLoading ? (
+            Array.from({ length: 8 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          ) : (
+            kpis.map(kpi => (
+              <KpiCard key={kpi.id} kpi={kpi} />
+            ))
+          )}
+        </div>
 
-      {/* Main Charts Row 1 */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <SalesChart />
-        <StockDonut />
-      </div>
+        {/* Main Charts Row 1 */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          <SalesChart />
+          <StockDonut />
+        </div>
 
-      {/* Charts Row 2 */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <TopProducts />
-        <PerformanceRadar />
-      </div>
+        {/* Charts Row 2 */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          <TopProducts />
+          <PerformanceRadar />
+        </div>
 
-      {/* Charts Row 3 */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <TopClients />
-        <MarginEvolution />
-      </div>
+        {/* Charts Row 3 */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+          <TopClients />
+          <MarginEvolution />
         </div>
       </div>
     </div>

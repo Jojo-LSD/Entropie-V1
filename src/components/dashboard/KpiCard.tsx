@@ -27,30 +27,26 @@ export const KpiCard = ({ kpi }: KpiCardProps) => {
   return (
     <Card variant="elevated" className="group">
       <CardContent className="p-5">
-        <div className="flex items-center justify-between mb-4">
-          <div className="p-3 rounded-lg transition-all duration-200" style={{ backgroundColor: colorScheme.bg }}>
-            <IconComponent className="h-5 w-5" style={{ color: colorScheme.icon }} />
+        <div className="flex items-center gap-4">
+          <div className="p-3 rounded-lg transition-all duration-200 flex-shrink-0" style={{ backgroundColor: colorScheme.bg }}>
+            <IconComponent className="h-6 w-6" style={{ color: colorScheme.icon }} />
           </div>
-        </div>
 
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{kpi.title}</h3>
-          <p className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>{kpi.value}</p>
-
-          <div className="flex items-center space-x-2 pt-1">
-            <div className={`flex items-center space-x-1 px-2 py-1 rounded text-xs font-semibold ${
-              isPositive
-                ? 'text-green-600'
-                : 'text-red-600'
-            }`}>
-              {isPositive ? (
-                <TrendingUp className="h-3 w-3" />
-              ) : (
-                <TrendingDown className="h-3 w-3" />
-              )}
-              <span>{Math.abs(kpi.change)}%</span>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-sm font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>{kpi.title}</h3>
+            <div className="flex items-baseline gap-3">
+              <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{kpi.value}</p>
+              <div className={`flex items-center space-x-1 text-xs font-semibold ${
+                isPositive ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {isPositive ? (
+                  <TrendingUp className="h-3 w-3" />
+                ) : (
+                  <TrendingDown className="h-3 w-3" />
+                )}
+                <span>{Math.abs(kpi.change)}%</span>
+              </div>
             </div>
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>vs période précédente</span>
           </div>
         </div>
       </CardContent>
