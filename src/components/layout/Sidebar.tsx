@@ -26,7 +26,7 @@ export const Sidebar = () => {
       {/* Header */}
       <div className="p-6">
         <div className="flex items-center space-x-3 mb-8">
-          <div className="w-9 h-9 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg"></div>
+          <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg"></div>
           <span className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>Entropie</span>
         </div>
       </div>
@@ -129,7 +129,7 @@ export const Sidebar = () => {
           className={({ isActive }) =>
             `flex items-center px-4 py-2.5 text-sm rounded-lg transition-all duration-200 ${
               isActive
-                ? 'bg-orange-500 text-white font-semibold shadow-md'
+                ? 'bg-blue-500 text-white font-semibold shadow-md'
                 : 'hover:bg-gray-50'
             }`
           }
@@ -146,7 +146,7 @@ export const Sidebar = () => {
           onClick={() => setShowProfileModal(true)}
           className="flex items-center space-x-3 w-full hover:bg-gray-50 rounded-lg p-3 transition-all duration-200 group"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
             <User className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 min-w-0 text-left">
@@ -162,7 +162,7 @@ export const Sidebar = () => {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-6 w-80 max-w-sm mx-4 shadow-2xl border" style={{ borderColor: 'var(--card-border)' }}>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                 <User className="h-6 w-6 text-white" />
               </div>
               <div>

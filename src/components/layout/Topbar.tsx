@@ -13,7 +13,7 @@ export const Topbar = ({ onProfileClick }: TopbarProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo et nom */}
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-md">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-md">
             <div className="w-6 h-6 bg-white/30 rounded"></div>
           </div>
           <div>
@@ -31,7 +31,7 @@ export const Topbar = ({ onProfileClick }: TopbarProps) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher dans le dashboard..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-gray-50 border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:bg-white"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-gray-50 border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white"
               style={{
                 borderColor: 'var(--card-border)',
                 color: 'var(--text-primary)'
@@ -57,7 +57,7 @@ export const Topbar = ({ onProfileClick }: TopbarProps) => {
               <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>Welcome back,</p>
               <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>Prodal</p>
             </div>
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
               <User className="h-5 w-5 text-white" />
             </div>
             <ChevronDown className="h-4 w-4" style={{ color: 'var(--text-muted)' }} />

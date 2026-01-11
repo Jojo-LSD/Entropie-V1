@@ -17,23 +17,29 @@ export const NavBar = () => {
         <nav className="flex items-center space-x-1 overflow-x-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
+            const isChatAssistant = item.href === '/chat';
             return (
               <NavLink
                 key={item.name}
                 to={item.href}
                 className={({ isActive }) =>
-                  `flex items-center space-x-2 px-5 py-4 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 ${
+                  `flex items-center space-x-2 px-5 py-4 text-sm font-medium whitespace-nowrap transition-all duration-200 border-b-2 relative overflow-hidden ${
                     isActive
-                      ? 'border-orange-500 bg-orange-50/50'
+                      ? isChatAssistant
+                        ? 'border-transparent bg-gradient-to-r from-violet-50/50 via-blue-50/50 to-cyan-50/50'
+                        : 'border-blue-500 bg-blue-50/50'
                       : 'border-transparent hover:bg-gray-50'
                   }`
                 }
-                style={({ isActive }) => ({
-                  color: isActive ? '#FF6B2C' : 'var(--text-secondary)'
-                })}
+                style={({ isActive }) =>
+                  !isChatAssistant ? { color: isActive ? '#3B82F6' : 'var(--text-secondary)' } : {}
+                }
               >
-                <Icon className="h-5 w-5" />
-                <span>{item.name}</span>
+                {isChatAssistant && (
+                  <div className="absolute inset-0 chat-gradient opacity-10 -z-10" />
+                )}
+                <Icon className={isChatAssistant ? "h-5 w-5 chat-text-gradient" : "h-5 w-5"} />
+                <span className={isChatAssistant ? "chat-text-gradient font-semibold" : ""}>{item.name}</span>
               </NavLink>
             );
           })}

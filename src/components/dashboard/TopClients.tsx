@@ -13,7 +13,7 @@ const getRankBadgeColor = (rank: number) => {
     case 2:
       return 'bg-gray-100 text-gray-700 border-gray-300';
     case 3:
-      return 'bg-orange-100 text-orange-800 border-orange-300';
+      return 'bg-blue-100 text-blue-800 border-blue-300';
     default:
       return 'bg-blue-100 text-blue-800 border-blue-300';
   }

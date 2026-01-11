@@ -9,12 +9,12 @@ interface KpiCardProps {
 
 const getKpiColor = (index: number) => {
   const colors = [
-    { bg: '#FFF4F0', icon: '#FF6B2C' }, // Orange
-    { bg: '#FFF0F0', icon: '#FF5757' }, // Red
-    { bg: '#F4F3FF', icon: '#6C5CE7' }, // Violet
-    { bg: '#F0F7FF', icon: '#4D96FF' }, // Blue
-    { bg: '#FFF9E6', icon: '#FFB400' }, // Yellow
-    { bg: '#E6F9FF', icon: '#00D4FF' }, // Cyan
+    { bg: '#EFF6FF', icon: '#3B82F6' }, // Blue
+    { bg: '#ECFEFF', icon: '#06B6D4' }, // Cyan
+    { bg: '#EEF2FF', icon: '#6366F1' }, // Indigo
+    { bg: '#F0F9FF', icon: '#0EA5E9' }, // Sky
+    { bg: '#F5F3FF', icon: '#8B5CF6' }, // Violet
+    { bg: '#F0FDFA', icon: '#14B8A6' }, // Teal
   ];
   return colors[index % colors.length];
 };
