@@ -57,34 +57,36 @@ export const Dashboard = () => {
 
       <div className="flex-1 overflow-y-auto space-y-8 pr-2">
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 animate-fade-in-up">
           {isLoading ? (
             Array.from({ length: 8 }).map((_, index) => (
               <SkeletonCard key={index} />
             ))
           ) : (
             kpis.map(kpi => (
-              <KpiCard key={kpi.id} kpi={kpi} />
+              <div key={kpi.id} className="hover-lift">
+                <KpiCard kpi={kpi} />
+              </div>
             ))
           )}
         </div>
 
         {/* Main Charts Row 1 */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <SalesChart category={selectedCategory} />
-          <StockDonut category={selectedCategory} />
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 animate-scale-in">
+          <div className="hover-lift"><SalesChart category={selectedCategory} /></div>
+          <div className="hover-lift"><StockDonut category={selectedCategory} /></div>
         </div>
 
         {/* Charts Row 2 */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <TopProducts />
-          <PerformanceRadar />
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 animate-slide-in-right">
+          <div className="hover-lift"><TopProducts /></div>
+          <div className="hover-lift"><PerformanceRadar /></div>
         </div>
 
         {/* Charts Row 3 */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <TopClients />
-          <MarginEvolution />
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 animate-fade-in-up">
+          <div className="hover-lift"><TopClients /></div>
+          <div className="hover-lift"><MarginEvolution /></div>
         </div>
       </div>
     </div>

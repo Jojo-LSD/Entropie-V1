@@ -129,7 +129,7 @@ export const Tables = () => {
   const renderArticlesTable = () => (
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gradient-to-r from-orange-50 to-red-50">
+        <thead className="bg-gradient-to-r from-blue-50 to-cyan-50">
           <tr>
             {[
               { key: 'code', label: 'Code' },
@@ -143,12 +143,12 @@ export const Tables = () => {
               <th
                 key={col.key}
                 onClick={() => handleSort(col.key)}
-                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none`}
+                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:text-blue-600 transition-colors duration-200`}
               >
                 <span className="inline-flex items-center gap-1">
                   {col.label}
                   {sortKey === col.key && (
-                    <span className="text-[10px] text-orange-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
+                    <span className="text-[10px] text-blue-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
                   )}
                 </span>
               </th>
@@ -157,7 +157,7 @@ export const Tables = () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {sortedArticles.map((article) => (
-            <tr key={article.id} className="hover:bg-orange-50 transition-colors">
+            <tr key={article.id} className="hover:bg-blue-50 transition-all duration-200">
               <td className="px-4 py-3 text-sm font-medium text-gray-900">{article.code}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{article.nom}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{article.categorie}</td>
@@ -183,7 +183,7 @@ export const Tables = () => {
   const renderClientsTable = () => (
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gradient-to-r from-orange-50 to-red-50">
+        <thead className="bg-gradient-to-r from-blue-50 to-cyan-50">
           <tr>
             {[
               { key: 'codeClient', label: 'Code Client' },
@@ -198,12 +198,12 @@ export const Tables = () => {
               <th
                 key={col.key}
                 onClick={() => handleSort(col.key)}
-                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none`}
+                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:text-blue-600 transition-colors duration-200`}
               >
                 <span className="inline-flex items-center gap-1">
                   {col.label}
                   {sortKey === col.key && (
-                    <span className="text-[10px] text-orange-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
+                    <span className="text-[10px] text-blue-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
                   )}
                 </span>
               </th>
@@ -212,7 +212,7 @@ export const Tables = () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {sortedClients.map((client) => (
-            <tr key={client.id} className="hover:bg-orange-50 transition-colors">
+            <tr key={client.id} className="hover:bg-blue-50 transition-all duration-200">
               <td className="px-4 py-3 text-sm font-medium text-gray-900">{client.codeClient}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{client.nom}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{client.ville}</td>
@@ -239,7 +239,7 @@ export const Tables = () => {
   const renderFournisseursTable = () => (
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gradient-to-r from-orange-50 to-red-50">
+        <thead className="bg-gradient-to-r from-blue-50 to-cyan-50">
           <tr>
             {[
               { key: 'codeFournisseur', label: 'Code Fournisseur' },
@@ -251,12 +251,12 @@ export const Tables = () => {
               <th
                 key={col.key}
                 onClick={() => handleSort(col.key)}
-                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none`}
+                className={`px-4 py-3 text-${col.align ?? 'left'} text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:text-blue-600 transition-colors duration-200`}
               >
                 <span className="inline-flex items-center gap-1">
                   {col.label}
                   {sortKey === col.key && (
-                    <span className="text-[10px] text-orange-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
+                    <span className="text-[10px] text-blue-500">{sortOrder === 'asc' ? '▲' : '▼'}</span>
                   )}
                 </span>
               </th>
@@ -265,13 +265,13 @@ export const Tables = () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {sortedFournisseurs.map((fournisseur) => (
-            <tr key={fournisseur.id} className="hover:bg-orange-50 transition-colors">
+            <tr key={fournisseur.id} className="hover:bg-blue-50 transition-all duration-200">
               <td className="px-4 py-3 text-sm font-medium text-gray-900">{fournisseur.codeFournisseur}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{fournisseur.nom}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{fournisseur.ville ?? ''}</td>
               <td className="px-4 py-3 text-sm text-gray-600">{fournisseur.pays ?? ''}</td>
               <td className="px-4 py-3 text-center">
-                <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-orange-50 text-orange-700 border border-orange-100">
+                <span className="inline-flex px-2 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-700 border border-blue-100">
                   {fournisseur.statut ?? ''}
                 </span>
               </td>
@@ -290,7 +290,7 @@ export const Tables = () => {
       </div>
 
       <div className="px-6 pt-6 bg-gradient-to-br from-gray-50 to-gray-100 sticky top-0 z-10">
-        <div className="flex flex-col gap-4 border-b border-gray-200 pb-4">
+        <div className="flex flex-col gap-4 border-b border-gray-200 pb-4 animate-fade-in-up">
           <div className="flex gap-2">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -298,9 +298,9 @@ export const Tables = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTable(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 font-medium transition-all ${
+                  className={`flex items-center gap-2 px-6 py-3 font-medium transition-all duration-200 ${
                     activeTable === tab.id
-                      ? 'text-orange-600 border-b-2 border-orange-600'
+                      ? 'text-blue-600 border-b-2 border-blue-600'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
                 >
@@ -316,7 +316,7 @@ export const Tables = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Rechercher..."
-              className="w-full md:w-96 px-4 py-2 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white shadow-sm"
+              className="w-full md:w-96 px-4 py-2 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-sm transition-all duration-200"
             />
           </div>
         </div>
@@ -324,7 +324,7 @@ export const Tables = () => {
 
       <div className="flex-1 overflow-auto">
         <div className="p-6 pt-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden animate-scale-in hover-lift">
             {activeTable === 'articles' && renderArticlesTable()}
             {activeTable === 'clients' && renderClientsTable()}
             {activeTable === 'fournisseurs' && renderFournisseursTable()}

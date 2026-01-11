@@ -120,9 +120,9 @@ export const InteractiveDashboard = () => {
     <div className="min-h-full bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="p-6 md:p-8 pb-0">
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 animate-fade-in-up">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg hover-glow">
                 <Activity className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -132,15 +132,15 @@ export const InteractiveDashboard = () => {
             </div>
 
             <div className="flex items-center space-x-3">
-              <button className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+              <button className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Filter className="h-4 w-4 text-gray-600" />
                 <span className="text-sm font-medium text-gray-700">Filtres</span>
               </button>
-              <button className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+              <button className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md">
                 <Download className="h-4 w-4 text-gray-600" />
                 <span className="text-sm font-medium text-gray-700">Export</span>
               </button>
-              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all shadow-md">
+              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 shadow-md hover:shadow-lg">
                 <Share2 className="h-4 w-4" />
                 <span className="text-sm font-semibold">Partager</span>
               </button>
@@ -148,8 +148,8 @@ export const InteractiveDashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden animate-scale-in">
+          <div className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
             <div className="flex items-center space-x-2 text-white">
               <Database className="h-5 w-5" />
               <h2 className="text-lg font-semibold">Espace d'analyse de données</h2>

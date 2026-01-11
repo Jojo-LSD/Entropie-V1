@@ -12,7 +12,7 @@ const navItems = [
 
 export const NavBar = () => {
   return (
-    <div className="bg-white/90 backdrop-blur-md rounded-2xl border shadow-sm" style={{ borderColor: 'var(--card-border)' }}>
+    <div className="bg-white/90 backdrop-blur-md rounded-2xl border shadow-sm animate-fade-in-up" style={{ borderColor: 'var(--card-border)' }}>
       <div className="px-6">
         <nav className="flex items-center space-x-1 overflow-x-auto">
           {navItems.map((item) => {

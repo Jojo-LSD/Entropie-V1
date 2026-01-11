@@ -80,10 +80,10 @@ export const SalesChart = ({ category = 'transport' }: SalesChartProps) => {
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="#FF6B2C"
+                  stroke="#3B82F6"
                   strokeWidth={3}
-                  dot={{ fill: '#FF6B2C', strokeWidth: 2, r: 4 }}
-                  activeDot={{ r: 6, stroke: '#FF6B2C', strokeWidth: 2, fill: 'white' }}
+                  dot={{ fill: '#3B82F6', strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, stroke: '#3B82F6', strokeWidth: 2, fill: 'white' }}
                 />
               </LineChart>
             </ResponsiveContainer>
