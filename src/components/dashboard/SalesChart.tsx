@@ -6,7 +6,11 @@ import { PeriodTabs } from './PeriodTabs';
 import { dashboardService } from '../../api/dashboardApi';
 import { Skeleton } from '../ui/Skeleton';
 
-export const SalesChart = () => {
+interface SalesChartProps {
+  category?: string;
+}
+
+export const SalesChart = ({ category = 'transport' }: SalesChartProps) => {
   const [data, setData] = useState<SalesData[]>([]);
   const [selectedPeriod, setSelectedPeriod] = useState<Period>('30d');
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +19,7 @@ export const SalesChart = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const salesData = await dashboardService.getSalesData(selectedPeriod);
+        const salesData = await dashboardService.getSalesData(selectedPeriod, category);
         setData(salesData);
       } catch (error) {
         console.error('Failed to fetch sales data:', error);
@@ -25,7 +29,7 @@ export const SalesChart = () => {
     };
 
     fetchData();
-  }, [selectedPeriod]);
+  }, [selectedPeriod, category]);
 
   return (
     <Card variant="elevated">

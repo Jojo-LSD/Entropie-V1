@@ -533,32 +533,236 @@ export const mockKPIsByCategory: Record<string, KPI[]> = {
 
 export const mockKPIs: KPI[] = mockKPIsByCategory.transport;
 
-export const mockSalesData: Record<string, SalesData[]> = {
-  '7d': [
-    { date: '2024-01-01', value: 4200 },
-    { date: '2024-01-02', value: 3800 },
-    { date: '2024-01-03', value: 4500 },
-    { date: '2024-01-04', value: 4100 },
-    { date: '2024-01-05', value: 4800 },
-    { date: '2024-01-06', value: 4300 },
-    { date: '2024-01-07', value: 4700 }
+export const mockSalesDataByCategory: Record<string, Record<string, SalesData[]>> = {
+  transport: {
+    '7d': [
+      { date: '2024-01-01', value: 12200 },
+      { date: '2024-01-02', value: 11800 },
+      { date: '2024-01-03', value: 13500 },
+      { date: '2024-01-04', value: 12100 },
+      { date: '2024-01-05', value: 14800 },
+      { date: '2024-01-06', value: 13300 },
+      { date: '2024-01-07', value: 12700 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 38000 },
+      { date: '2024-01-08', value: 42000 },
+      { date: '2024-01-15', value: 39000 },
+      { date: '2024-01-22', value: 45000 },
+      { date: '2024-01-29', value: 41000 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 115000 },
+      { date: '2024-02-01', value: 122000 },
+      { date: '2024-03-01', value: 118000 }
+    ]
+  },
+  entrepot: {
+    '7d': [
+      { date: '2024-01-01', value: 8200 },
+      { date: '2024-01-02', value: 7800 },
+      { date: '2024-01-03', value: 8500 },
+      { date: '2024-01-04', value: 8100 },
+      { date: '2024-01-05', value: 9200 },
+      { date: '2024-01-06', value: 8600 },
+      { date: '2024-01-07', value: 8900 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 28000 },
+      { date: '2024-01-08', value: 32000 },
+      { date: '2024-01-15', value: 29000 },
+      { date: '2024-01-22', value: 35000 },
+      { date: '2024-01-29', value: 31000 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 85000 },
+      { date: '2024-02-01', value: 92000 },
+      { date: '2024-03-01', value: 88000 }
+    ]
+  },
+  commandes: {
+    '7d': [
+      { date: '2024-01-01', value: 15600 },
+      { date: '2024-01-02', value: 14200 },
+      { date: '2024-01-03', value: 16800 },
+      { date: '2024-01-04', value: 15400 },
+      { date: '2024-01-05', value: 17200 },
+      { date: '2024-01-06', value: 16100 },
+      { date: '2024-01-07', value: 15900 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 48000 },
+      { date: '2024-01-08', value: 52000 },
+      { date: '2024-01-15', value: 49000 },
+      { date: '2024-01-22', value: 55000 },
+      { date: '2024-01-29', value: 51000 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 145000 },
+      { date: '2024-02-01', value: 152000 },
+      { date: '2024-03-01', value: 148000 }
+    ]
+  },
+  achats: {
+    '7d': [
+      { date: '2024-01-01', value: 11200 },
+      { date: '2024-01-02', value: 10800 },
+      { date: '2024-01-03', value: 12500 },
+      { date: '2024-01-04', value: 11100 },
+      { date: '2024-01-05', value: 13800 },
+      { date: '2024-01-06', value: 12300 },
+      { date: '2024-01-07', value: 11700 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 78000 },
+      { date: '2024-01-08', value: 82000 },
+      { date: '2024-01-15', value: 79000 },
+      { date: '2024-01-22', value: 95000 },
+      { date: '2024-01-29', value: 91000 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 235000 },
+      { date: '2024-02-01', value: 252000 },
+      { date: '2024-03-01', value: 248000 }
+    ]
+  },
+  qualite: {
+    '7d': [
+      { date: '2024-01-01', value: 98.5 },
+      { date: '2024-01-02', value: 97.8 },
+      { date: '2024-01-03', value: 99.2 },
+      { date: '2024-01-04', value: 98.1 },
+      { date: '2024-01-05', value: 99.5 },
+      { date: '2024-01-06', value: 98.9 },
+      { date: '2024-01-07', value: 99.1 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 97.5 },
+      { date: '2024-01-08', value: 98.2 },
+      { date: '2024-01-15', value: 98.8 },
+      { date: '2024-01-22', value: 99.1 },
+      { date: '2024-01-29', value: 98.9 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 96.8 },
+      { date: '2024-02-01', value: 98.2 },
+      { date: '2024-03-01', value: 98.9 }
+    ]
+  },
+  financiers: {
+    '7d': [
+      { date: '2024-01-01', value: 42200 },
+      { date: '2024-01-02', value: 41800 },
+      { date: '2024-01-03', value: 43500 },
+      { date: '2024-01-04', value: 42100 },
+      { date: '2024-01-05', value: 44800 },
+      { date: '2024-01-06', value: 43300 },
+      { date: '2024-01-07', value: 42700 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 138000 },
+      { date: '2024-01-08', value: 142000 },
+      { date: '2024-01-15', value: 139000 },
+      { date: '2024-01-22', value: 145000 },
+      { date: '2024-01-29', value: 141000 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 415000 },
+      { date: '2024-02-01', value: 422000 },
+      { date: '2024-03-01', value: 418000 }
+    ]
+  },
+  retours: {
+    '7d': [
+      { date: '2024-01-01', value: 2.2 },
+      { date: '2024-01-02', value: 1.8 },
+      { date: '2024-01-03', value: 3.5 },
+      { date: '2024-01-04', value: 2.1 },
+      { date: '2024-01-05', value: 4.8 },
+      { date: '2024-01-06', value: 3.3 },
+      { date: '2024-01-07', value: 2.7 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 3.8 },
+      { date: '2024-01-08', value: 4.2 },
+      { date: '2024-01-15', value: 3.9 },
+      { date: '2024-01-22', value: 4.5 },
+      { date: '2024-01-29', value: 4.1 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 4.5 },
+      { date: '2024-02-01', value: 4.2 },
+      { date: '2024-03-01', value: 3.8 }
+    ]
+  },
+  performance: {
+    '7d': [
+      { date: '2024-01-01', value: 85.2 },
+      { date: '2024-01-02', value: 84.8 },
+      { date: '2024-01-03', value: 86.5 },
+      { date: '2024-01-04', value: 85.1 },
+      { date: '2024-01-05', value: 88.2 },
+      { date: '2024-01-06', value: 87.3 },
+      { date: '2024-01-07', value: 87.5 }
+    ],
+    '30d': [
+      { date: '2024-01-01', value: 83.5 },
+      { date: '2024-01-08', value: 85.2 },
+      { date: '2024-01-15', value: 84.8 },
+      { date: '2024-01-22', value: 86.9 },
+      { date: '2024-01-29', value: 87.5 }
+    ],
+    '90d': [
+      { date: '2024-01-01', value: 81.8 },
+      { date: '2024-02-01', value: 84.2 },
+      { date: '2024-03-01', value: 87.5 }
+    ]
+  }
+};
+
+export const mockSalesData: Record<string, SalesData[]> = mockSalesDataByCategory.transport;
+
+export const mockStockDataByCategory: Record<string, StockData[]> = {
+  transport: [
+    { category: 'Transport Local', value: 45, color: '#FF6B2C' },
+    { category: 'Transport National', value: 35, color: '#F97316' },
+    { category: 'Transport International', value: 20, color: '#FB923C' }
   ],
-  '30d': [
-    { date: '2024-01-01', value: 28000 },
-    { date: '2024-01-08', value: 32000 },
-    { date: '2024-01-15', value: 29000 },
-    { date: '2024-01-22', value: 35000 },
-    { date: '2024-01-29', value: 31000 }
+  entrepot: [
+    { category: 'Zone A', value: 40, color: '#8b5cf6' },
+    { category: 'Zone B', value: 35, color: '#a78bfa' },
+    { category: 'Zone C', value: 25, color: '#c4b5fd' }
   ],
-  '90d': [
-    { date: '2024-01-01', value: 85000 },
-    { date: '2024-02-01', value: 92000 },
-    { date: '2024-03-01', value: 88000 }
+  commandes: [
+    { category: 'Standard', value: 50, color: '#3b82f6' },
+    { category: 'Express', value: 30, color: '#60a5fa' },
+    { category: 'Urgent', value: 20, color: '#93c5fd' }
+  ],
+  achats: [
+    { category: 'Matières Premières', value: 55, color: '#10b981' },
+    { category: 'Fournitures', value: 25, color: '#34d399' },
+    { category: 'Services', value: 20, color: '#6ee7b7' }
+  ],
+  qualite: [
+    { category: 'Conformes', value: 89, color: '#22c55e' },
+    { category: 'En Contrôle', value: 8, color: '#fbbf24' },
+    { category: 'Non-Conformes', value: 3, color: '#ef4444' }
+  ],
+  financiers: [
+    { category: 'Transport', value: 42, color: '#f59e0b' },
+    { category: 'Entreposage', value: 28, color: '#fbbf24' },
+    { category: 'Main d\'Œuvre', value: 30, color: '#fcd34d' }
+  ],
+  retours: [
+    { category: 'Défaut', value: 48, color: '#ef4444' },
+    { category: 'Erreur Commande', value: 32, color: '#f87171' },
+    { category: 'Autre', value: 20, color: '#fca5a5' }
+  ],
+  performance: [
+    { category: 'Excellent', value: 45, color: '#22c55e' },
+    { category: 'Bon', value: 35, color: '#84cc16' },
+    { category: 'À Améliorer', value: 20, color: '#fbbf24' }
   ]
 };
 
-export const mockStockData: StockData[] = [
-  { category: 'Viande', value: 45, color: '#EF4444' },
-  { category: 'Abats', value: 25, color: '#F97316' },
-  { category: 'Volaille', value: 30, color: '#10B981' }
-];
+export const mockStockData: StockData[] = mockStockDataByCategory.transport;

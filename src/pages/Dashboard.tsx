@@ -69,8 +69,8 @@ export const Dashboard = () => {
 
         {/* Main Charts Row 1 */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <SalesChart />
-          <StockDonut />
+          <SalesChart category={selectedCategory} />
+          <StockDonut category={selectedCategory} />
         </div>
 
         {/* Charts Row 2 */}

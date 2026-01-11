@@ -1,5 +1,5 @@
 import { KPI, SalesData, StockData, Period } from '../types';
-import { mockKPIsByCategory, mockSalesData, mockStockData } from '../mock/dashboard';
+import { mockKPIsByCategory, mockSalesDataByCategory, mockStockDataByCategory } from '../mock/dashboard';
 
 export class DashboardService {
   // Future: Replace with actual API calls to PostgreSQL via FastAPI
@@ -9,14 +9,14 @@ export class DashboardService {
     return mockKPIsByCategory[category] || mockKPIsByCategory.transport;
   }
 
-  async getSalesData(period: Period): Promise<SalesData[]> {
+  async getSalesData(period: Period, category: string = 'transport'): Promise<SalesData[]> {
     await new Promise(resolve => setTimeout(resolve, 600));
-    return mockSalesData[period];
+    return mockSalesDataByCategory[category]?.[period] || mockSalesDataByCategory.transport[period];
   }
 
-  async getStockData(): Promise<StockData[]> {
+  async getStockData(category: string = 'transport'): Promise<StockData[]> {
     await new Promise(resolve => setTimeout(resolve, 400));
-    return mockStockData;
+    return mockStockDataByCategory[category] || mockStockDataByCategory.transport;
   }
 }
 

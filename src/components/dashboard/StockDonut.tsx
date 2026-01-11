@@ -5,7 +5,11 @@ import { Card, CardContent, CardHeader } from '../ui/Card';
 import { dashboardService } from '../../api/dashboardApi';
 import { Skeleton } from '../ui/Skeleton';
 
-export const StockDonut = () => {
+interface StockDonutProps {
+  category?: string;
+}
+
+export const StockDonut = ({ category = 'transport' }: StockDonutProps) => {
   const [data, setData] = useState<StockData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -13,7 +17,7 @@ export const StockDonut = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const stockData = await dashboardService.getStockData();
+        const stockData = await dashboardService.getStockData(category);
         setData(stockData);
       } catch (error) {
         console.error('Failed to fetch stock data:', error);
@@ -23,7 +27,7 @@ export const StockDonut = () => {
     };
 
     fetchData();
-  }, []);
+  }, [category]);
 
   const renderCustomLegend = (props: any) => {
     const { payload } = props;
