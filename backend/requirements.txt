@@ -1,0 +1,10 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+SQLAlchemy==2.0.32
+psycopg[binary]==3.2.12
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+python-multipart==0.0.9
+temporalio==1.6.0
+pandas==2.2.2
+pygwalker==0.4.8
