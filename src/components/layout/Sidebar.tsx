@@ -22,12 +22,12 @@ export const Sidebar = () => {
 
   return (
     <>
-    <div className="w-64 glass-strong h-screen flex flex-col shadow-xl">
+    <div className="w-64 bg-white h-screen flex flex-col border-r border-gray-200 shadow-sm">
       {/* Header */}
       <div className="p-6">
         <div className="flex items-center space-x-3 mb-8">
-          <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl shadow-lg shadow-violet-500/30"></div>
-          <span className="text-lg font-bold text-slate-900">Entropie</span>
+          <div className="w-9 h-9 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg"></div>
+          <span className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>Entropie</span>
         </div>
       </div>
 
@@ -39,15 +39,18 @@ export const Sidebar = () => {
               <NavLink
                 to={item.href}
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-2.5 text-sm rounded-xl transition-all duration-200 ${
+                  `flex items-center px-4 py-2.5 text-sm rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/30'
-                      : 'text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm'
+                      ? 'bg-gray-100 font-semibold'
+                      : 'hover:bg-gray-50'
                   }`
                 }
+                style={({ isActive }) => ({
+                  color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)'
+                })}
               >
-                <item.icon className="mr-3 h-4 w-4" />
-                <span className="font-medium">{item.name}</span>
+                <item.icon className="mr-3 h-5 w-5" />
+                <span>{item.name}</span>
               </NavLink>
             </li>
           ))}
@@ -55,7 +58,7 @@ export const Sidebar = () => {
 
         {/* Projects Section */}
         <div className="mb-6">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 px-4" style={{ color: 'var(--text-muted)' }}>
             Tableaux de bords
           </h3>
           <ul className="space-y-1">
@@ -64,15 +67,16 @@ export const Sidebar = () => {
                 {item.href ? (
                   <NavLink
                     to={item.href}
-                    className="flex items-center px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200"
+                    className="flex items-center px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg transition-all duration-200"
+                    style={{ color: 'var(--text-secondary)' }}
                   >
-                    <item.icon className="mr-3 h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
+                    <item.icon className="mr-3 h-5 w-5" />
+                    <span>{item.name}</span>
                   </NavLink>
                 ) : (
-                  <button className="flex items-center w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200">
-                    <item.icon className="mr-3 h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
+                  <button className="flex items-center w-full px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg transition-all duration-200" style={{ color: 'var(--text-secondary)' }}>
+                    <item.icon className="mr-3 h-5 w-5" />
+                    <span>{item.name}</span>
                   </button>
                 )}
               </li>
@@ -82,32 +86,33 @@ export const Sidebar = () => {
 
         {/* Resources Section */}
         <div className="mb-6">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 px-4" style={{ color: 'var(--text-muted)' }}>
             Automatisation
           </h3>
           <ul className="space-y-1">
             {resources.map((item) => (
               <li key={item.name}>
                 {item.name === 'Commande Vente' ? (
-                  <div className="flex items-center px-4 py-2.5 text-sm text-slate-400 rounded-xl cursor-not-allowed relative group">
-                    <item.icon className="mr-3 h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
-                    <span className="ml-auto text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded-lg font-medium">
+                  <div className="flex items-center px-4 py-2.5 text-sm rounded-lg cursor-not-allowed relative group" style={{ color: 'var(--text-light)' }}>
+                    <item.icon className="mr-3 h-5 w-5" />
+                    <span>{item.name}</span>
+                    <span className="ml-auto text-xs bg-gray-100 px-2 py-1 rounded font-medium" style={{ color: 'var(--text-muted)' }}>
                       Bientôt
                     </span>
                   </div>
                 ) : item.href ? (
                   <NavLink
                     to={item.href}
-                    className="flex items-center px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200"
+                    className="flex items-center px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg transition-all duration-200"
+                    style={{ color: 'var(--text-secondary)' }}
                   >
-                    <item.icon className="mr-3 h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
+                    <item.icon className="mr-3 h-5 w-5" />
+                    <span>{item.name}</span>
                   </NavLink>
                 ) : (
-                  <button className="flex items-center w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm rounded-xl transition-all duration-200">
-                    <item.icon className="mr-3 h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
+                  <button className="flex items-center w-full px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg transition-all duration-200" style={{ color: 'var(--text-secondary)' }}>
+                    <item.icon className="mr-3 h-5 w-5" />
+                    <span>{item.name}</span>
                   </button>
                 )}
               </li>
@@ -117,67 +122,70 @@ export const Sidebar = () => {
       </nav>
 
       {/* Bottom Section */}
-      <div className="p-4 space-y-3 border-t border-white/20">
+      <div className="p-4 space-y-3 border-t" style={{ borderColor: 'var(--card-border)' }}>
         {/* Reports Link */}
         <NavLink
           to="/reports"
           className={({ isActive }) =>
-            `flex items-center px-4 py-2.5 text-sm rounded-xl transition-all duration-200 ${
+            `flex items-center px-4 py-2.5 text-sm rounded-lg transition-all duration-200 ${
               isActive
-                ? 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/30'
-                : 'text-slate-600 hover:bg-white/60 hover:text-slate-900 hover:shadow-sm'
+                ? 'bg-orange-500 text-white font-semibold shadow-md'
+                : 'hover:bg-gray-50'
             }`
           }
+          style={({ isActive }) => ({
+            color: isActive ? '#FFFFFF' : 'var(--text-secondary)'
+          })}
         >
-          <BarChart3 className="mr-3 h-4 w-4" />
-          <span className="font-medium">Rapports</span>
+          <BarChart3 className="mr-3 h-5 w-5" />
+          <span>Rapports</span>
         </NavLink>
 
         {/* User Profile */}
         <button
           onClick={() => setShowProfileModal(true)}
-          className="flex items-center space-x-3 w-full hover:bg-white/60 rounded-xl p-3 transition-all duration-200 group"
+          className="flex items-center space-x-3 w-full hover:bg-gray-50 rounded-lg p-3 transition-all duration-200 group"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center ring-2 ring-violet-100 group-hover:ring-violet-200 transition-all shadow-lg shadow-violet-500/30">
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
             <User className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 min-w-0 text-left">
-            <p className="text-sm font-semibold text-slate-900 truncate">Prodal</p>
-            <p className="text-xs text-slate-500 truncate">prodal@entropie.com</p>
+            <p className="text-sm font-semibold truncate" style={{ color: 'var(--text-primary)' }}>Prodal</p>
+            <p className="text-xs truncate" style={{ color: 'var(--text-muted)' }}>prodal@entropie.com</p>
           </div>
-          <Settings className="h-4 w-4 text-slate-400 group-hover:text-slate-600 transition-colors" />
+          <Settings className="h-4 w-4 transition-colors" style={{ color: 'var(--text-light)' }} />
         </button>
       </div>
 
       {/* Profile Modal */}
       {showProfileModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="glass-strong rounded-2xl p-6 w-80 max-w-sm mx-4 shadow-2xl">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-6 w-80 max-w-sm mx-4 shadow-2xl border" style={{ borderColor: 'var(--card-border)' }}>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/30">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
                 <User className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">Prodal</h3>
-                <p className="text-sm text-slate-500">prodal@entropie.com</p>
+                <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Prodal</h3>
+                <p className="text-sm" style={{ color: 'var(--text-muted)' }}>prodal@entropie.com</p>
               </div>
             </div>
 
             <div className="space-y-1">
-              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-white/60 rounded-xl transition-all duration-200">
-                <Settings className="h-4 w-4 text-slate-600" />
-                <span className="text-slate-700 font-medium">Paramètres</span>
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-gray-50 rounded-lg transition-all duration-200">
+                <Settings className="h-5 w-5" style={{ color: 'var(--text-secondary)' }} />
+                <span style={{ color: 'var(--text-secondary)' }}>Paramètres</span>
               </button>
 
-              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-white/60 rounded-xl transition-all duration-200">
-                <HelpCircle className="h-4 w-4 text-slate-600" />
-                <span className="text-slate-700 font-medium">Aide</span>
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-gray-50 rounded-lg transition-all duration-200">
+                <HelpCircle className="h-5 w-5" style={{ color: 'var(--text-secondary)' }} />
+                <span style={{ color: 'var(--text-secondary)' }}>Aide</span>
               </button>
 
-              <hr className="my-3 border-slate-200" />
+              <hr className="my-3" style={{ borderColor: 'var(--card-border)' }} />
 
-              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-red-50 rounded-xl transition-all duration-200 text-red-600">
-                <LogOut className="h-4 w-4" />
+              <button className="flex items-center space-x-3 w-full px-4 py-2.5 text-left hover:bg-red-50 rounded-lg transition-all duration-200" style={{ color: 'var(--danger)' }}>
+                <LogOut className="h-5 w-5" />
                 <span className="font-medium">Déconnexion</span>
               </button>
             </div>
@@ -185,7 +193,8 @@ export const Sidebar = () => {
             <div className="mt-6 flex justify-end">
               <button
                 onClick={() => setShowProfileModal(false)}
-                className="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors"
+                className="px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 rounded-lg"
+                style={{ color: 'var(--text-secondary)' }}
               >
                 Fermer
               </button>
