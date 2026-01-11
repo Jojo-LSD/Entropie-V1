@@ -43,10 +43,10 @@ export const ConversationSidebar = ({
             <button
               key={conversation.id}
               onClick={() => onConversationSelect(conversation.id)}
-              className={`flex items-start space-x-3 w-full px-4 py-3 text-left rounded-lg transition-all duration-200 ${
+              className={`flex items-start space-x-3 w-full px-4 py-3 text-left rounded-xl transition-all duration-200 ${
                 selectedConversation === conversation.id
-                  ? 'bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200'
-                  : 'hover:bg-gray-50'
+                  ? 'bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 shadow-sm'
+                  : 'hover:bg-gray-50/50'
               }`}
             >
               <MessageSquare className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--text-secondary)' }} />

@@ -53,7 +53,7 @@ export const Dashboard = () => {
         onCategoryChange={setSelectedCategory}
       />
 
-      <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-2xl border p-8 shadow-lg" style={{ borderColor: 'var(--card-border)' }}>
+      <div className="flex-1 bg-white/95 backdrop-blur-sm rounded-2xl border p-8 shadow-sm" style={{ borderColor: 'var(--card-border)' }}>
         <div className="space-y-8">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>

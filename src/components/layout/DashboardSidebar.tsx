@@ -36,10 +36,10 @@ export const DashboardSidebar = ({ selectedCategory, onCategoryChange }: Dashboa
           <button
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
-            className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-lg transition-all duration-200 ${
+            className={`flex items-center space-x-3 w-full px-4 py-3 text-left rounded-xl transition-all duration-200 ${
               selectedCategory === category.id
-                ? 'bg-gradient-to-r from-orange-50 to-red-50 text-orange-600 border border-orange-200'
-                : 'hover:bg-gray-50'
+                ? 'bg-gradient-to-r from-orange-50 to-red-50 text-orange-600 border border-orange-200 shadow-sm'
+                : 'hover:bg-gray-50/50'
             }`}
             style={{
               color: selectedCategory === category.id ? 'var(--primary-orange)' : 'var(--text-secondary)'

@@ -17,7 +17,6 @@ function App() {
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="chat" element={<Home />} />
-            <Route path="tous-les-tableaux" element={<Dashboard />} />
             <Route path="interactive-dashboard" element={<InteractiveDashboard />} />
             <Route path="tables" element={<Tables />} />
             <Route path="reports" element={<Reports />} />

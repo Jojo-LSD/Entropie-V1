@@ -7,8 +7,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className = '', variant = 'default', ...props }, ref) => {
     const variants = {
-      default: 'bg-white/90 backdrop-blur-sm rounded-xl border transition-all duration-200',
-      elevated: 'bg-white/90 backdrop-blur-sm rounded-xl border hover:shadow-lg hover:bg-white/95 transition-all duration-200'
+      default: 'bg-white/95 backdrop-blur-sm rounded-xl border transition-all duration-200',
+      elevated: 'bg-white/95 backdrop-blur-sm rounded-xl border hover:shadow-md hover:bg-white transition-all duration-200'
     };
 
     return (
@@ -17,7 +17,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         className={`${variants[variant]} ${className}`}
         style={{
           borderColor: 'var(--card-border)',
-          boxShadow: variant === 'default' ? 'var(--shadow)' : 'var(--shadow-md)'
+          boxShadow: variant === 'default' ? 'var(--shadow-sm)' : 'var(--shadow)'
         }}
         {...props}
       />
