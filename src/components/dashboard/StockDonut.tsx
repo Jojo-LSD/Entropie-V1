@@ -36,7 +36,7 @@ export const StockDonut = () => {
               className="w-3 h-3 rounded-full shadow-sm"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-slate-600 font-medium">
+            <span className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
               {entry.value}: {data.find(d => d.category === entry.value)?.value}%
             </span>
           </div>
@@ -48,7 +48,7 @@ export const StockDonut = () => {
   return (
     <Card variant="elevated">
       <CardHeader>
-        <h3 className="text-lg font-bold text-slate-900">Stock par catégorie</h3>
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>Stock par catégorie</h3>
       </CardHeader>
       <CardContent>
         {isLoading ? (

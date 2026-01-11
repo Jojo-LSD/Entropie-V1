@@ -122,12 +122,12 @@ export const InteractiveDashboard = () => {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Activity className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Dashboard Interactif</h1>
-                <p className="text-sm text-gray-600">Explorez vos données avec PyGWalker</p>
+                <h1 className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Dashboard Interactif</h1>
+                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Explorez vos données avec PyGWalker</p>
               </div>
             </div>
 
@@ -140,7 +140,7 @@ export const InteractiveDashboard = () => {
                 <Download className="h-4 w-4 text-gray-600" />
                 <span className="text-sm font-medium text-gray-700">Export</span>
               </button>
-              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-violet-700 text-white rounded-lg hover:from-purple-700 hover:to-violet-800 transition-all shadow-md">
+              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all shadow-md">
                 <Share2 className="h-4 w-4" />
                 <span className="text-sm font-semibold">Partager</span>
               </button>
@@ -148,8 +148,8 @@ export const InteractiveDashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-purple-600 to-violet-700 px-6 py-4">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
             <div className="flex items-center space-x-2 text-white">
               <Database className="h-5 w-5" />
               <h2 className="text-lg font-semibold">Espace d'analyse de données</h2>
@@ -157,7 +157,7 @@ export const InteractiveDashboard = () => {
           </div>
 
           <div className="p-4 md:p-6">
-            <div className="rounded-2xl border border-purple-100 bg-white shadow-sm overflow-hidden">
+            <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
               <div className="h-[980px] md:h-[1120px] bg-white">
                 {isLoading ? (
                   <div className="h-full flex items-center justify-center text-sm text-gray-500">

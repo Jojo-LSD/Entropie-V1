@@ -61,12 +61,12 @@ export const Reports = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6 pb-8">
       <div className="flex items-center space-x-4">
-        <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+        <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
           <FileText className="h-7 w-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Demande de Support</h1>
-          <p className="text-gray-600">Soumettez une demande et notre équipe vous contactera</p>
+          <h1 className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Demande de Support</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Soumettez une demande et notre équipe vous contactera</p>
         </div>
       </div>
 

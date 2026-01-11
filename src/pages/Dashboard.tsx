@@ -33,10 +33,10 @@ export const Dashboard = () => {
   return (
     <div className="space-y-8 pb-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
+        <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Tableaux de bord
         </h1>
-        <p className="text-slate-600 text-lg">
+        <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
           Vue d'ensemble de votre activité
         </p>
       </div>

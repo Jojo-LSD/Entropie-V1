@@ -31,7 +31,7 @@ export const SalesChart = () => {
     <Card variant="elevated">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold text-slate-900">Évolution des ventes</h3>
+          <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>Évolution des ventes</h3>
           <PeriodTabs
             selectedPeriod={selectedPeriod}
             onPeriodChange={setSelectedPeriod}
@@ -76,10 +76,10 @@ export const SalesChart = () => {
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="#8b5cf6"
+                  stroke="#FF6B2C"
                   strokeWidth={3}
-                  dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
-                  activeDot={{ r: 6, stroke: '#8b5cf6', strokeWidth: 2, fill: 'white' }}
+                  dot={{ fill: '#FF6B2C', strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, stroke: '#FF6B2C', strokeWidth: 2, fill: 'white' }}
                 />
               </LineChart>
             </ResponsiveContainer>

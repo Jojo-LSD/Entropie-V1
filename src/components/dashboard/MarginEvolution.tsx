@@ -42,11 +42,11 @@ export const MarginEvolution = () => {
   const [period, setPeriod] = useState<Period>('90');
 
   return (
-    <div className="glass-strong rounded-2xl shadow-xl border border-slate-200/50 p-6">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl border p-6 shadow-md hover:shadow-lg transition-all duration-200" style={{ borderColor: 'var(--card-border)' }}>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-bold text-slate-900 mb-1">Évolution de la marge</h3>
-          <p className="text-sm text-slate-600">Marge brute par jour</p>
+          <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Évolution de la marge</h3>
+          <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Marge brute par jour</p>
         </div>
 
         <div className="flex space-x-1 bg-slate-100 p-1 rounded-xl">

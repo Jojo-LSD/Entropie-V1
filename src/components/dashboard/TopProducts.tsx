@@ -10,10 +10,10 @@ const topProducts = [
 
 export const TopProducts = () => {
   return (
-    <div className="glass-strong rounded-2xl shadow-xl border border-slate-200/50 p-6">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl border p-6 shadow-md hover:shadow-lg transition-all duration-200" style={{ borderColor: 'var(--card-border)' }}>
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-1">Top produits en stock</h3>
-        <p className="text-sm text-slate-600">Produits avec le plus de stock</p>
+        <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Top produits en stock</h3>
+        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Produits avec le plus de stock</p>
       </div>
 
       <ResponsiveContainer width="100%" height={300}>

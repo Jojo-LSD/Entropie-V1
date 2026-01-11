@@ -21,10 +21,10 @@ const getRankBadgeColor = (rank: number) => {
 
 export const TopClients = () => {
   return (
-    <div className="glass-strong rounded-2xl shadow-xl border border-slate-200/50 p-6">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl border p-6 shadow-md hover:shadow-lg transition-all duration-200" style={{ borderColor: 'var(--card-border)' }}>
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-1">Top clients</h3>
-        <p className="text-sm text-slate-600">Classement par chiffre d'affaires</p>
+        <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>Top clients</h3>
+        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Classement par chiffre d'affaires</p>
       </div>
 
       <div className="space-y-4">

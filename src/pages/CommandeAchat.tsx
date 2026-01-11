@@ -152,12 +152,12 @@ export const CommandeAchat = () => {
       <div className="p-8 pb-8">
         <div className="mb-6">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
               <Package className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Gestion des Commandes</h1>
-              <p className="text-sm text-gray-600">Gérez vos commandes d'achat et validez les livraisons</p>
+              <h1 className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Gestion des Commandes</h1>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Gérez vos commandes d'achat et validez les livraisons</p>
             </div>
           </div>
 
@@ -169,7 +169,7 @@ export const CommandeAchat = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Rechercher une commande ou un produit..."
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-sm bg-white"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm bg-white"
               />
             </div>
 
@@ -179,7 +179,7 @@ export const CommandeAchat = () => {
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value as 'all' | 'pending' | 'validated')}
-                  className="pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm appearance-none"
+                  className="pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white shadow-sm appearance-none"
                 >
                   <option value="all">Tous les statuts</option>
                   <option value="pending">En attente</option>
@@ -187,7 +187,7 @@ export const CommandeAchat = () => {
                 </select>
               </div>
 
-              <select className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm">
+              <select className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white shadow-sm">
                 <option value="">Tous les fournisseurs</option>
                 <option value="abp">ABP NEWRY</option>
                 <option value="bigard">BIGARD TOULOUSE</option>
@@ -198,17 +198,17 @@ export const CommandeAchat = () => {
                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   type="date"
-                  className="pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm"
+                  className="pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white shadow-sm"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl border border-purple-100 shadow-sm p-6 mb-6">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm p-6 mb-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-md">
                 <UploadCloud className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -237,7 +237,7 @@ export const CommandeAchat = () => {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-purple-200 text-purple-700 bg-purple-50 hover:bg-purple-100 font-semibold transition-colors shadow-sm"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-orange-200 text-orange-700 bg-orange-50 hover:bg-orange-100 font-semibold transition-colors shadow-sm"
               >
                 <UploadCloud className="h-4 w-4 mr-2" />
                 Choisir un fichier
@@ -246,7 +246,7 @@ export const CommandeAchat = () => {
                 type="button"
                 onClick={handleSendFile}
                 disabled={!selectedFile || isUploading}
-                className="inline-flex items-center justify-center px-5 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-violet-700 text-white font-semibold shadow-sm hover:from-purple-700 hover:to-violet-800 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-sm hover:from-orange-600 hover:to-red-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isUploading ? (
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -256,7 +256,7 @@ export const CommandeAchat = () => {
                 Envoyer
               </button>
               {isUploading && (
-                <div className="flex items-start px-3 py-2 rounded-lg border border-purple-200 bg-purple-50 text-purple-800 shadow-sm space-x-2">
+                <div className="flex items-start px-3 py-2 rounded-lg border border-orange-200 bg-orange-50 text-orange-800 shadow-sm space-x-2">
                   <Loader2 className="h-4 w-4 mt-0.5 animate-spin" />
                   <div className="flex flex-col">
                     <span className="text-sm font-medium">Vérification de document en cours</span>
@@ -279,12 +279,12 @@ export const CommandeAchat = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-purple-600 to-violet-700 px-6 py-4">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
             <h2 className="text-lg font-semibold text-white flex items-center">
               <Package className="h-5 w-5 mr-2" />
               Liste des commandes
-              <span className="ml-3 bg-purple-500 bg-opacity-50 px-3 py-1 rounded-full text-sm font-medium">
+              <span className="ml-3 bg-orange-400 bg-opacity-50 px-3 py-1 rounded-full text-sm font-medium">
                 {filteredOrders.length} commande{filteredOrders.length !== 1 ? 's' : ''}
               </span>
             </h2>

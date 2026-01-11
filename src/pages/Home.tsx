@@ -144,9 +144,9 @@ export const Home = () => {
     <div className="h-full bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-purple-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-violet-400 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-purple-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 bg-red-400 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-32 left-1/3 w-40 h-40 bg-orange-400 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Content */}
@@ -212,7 +212,7 @@ export const Home = () => {
             <button
               key={index}
               onClick={() => setInputValue(suggestion)}
-              className="bg-white border border-gray-200 hover:border-purple-300 hover:bg-purple-50 text-gray-700 px-5 py-2.5 rounded-full transition-all hover:shadow-md flex items-center space-x-2"
+              className="bg-white border border-gray-200 hover:border-orange-300 hover:bg-orange-50 text-gray-700 px-5 py-2.5 rounded-full transition-all hover:shadow-md flex items-center space-x-2"
             >
               <Zap className="h-4 w-4 text-orange-500" />
               <span className="text-sm font-medium">{suggestion}</span>
