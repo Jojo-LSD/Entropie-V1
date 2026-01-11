@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Paperclip, Send, ChevronDown, MoreVertical, Mic, FileText, Sparkles } from 'lucide-react';
+import { Paperclip, Send, ChevronDown, Mic, FileText, Sparkles } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { MessageBubble } from '../components/chat/MessageBubble';
 import { ChatAssistantSidebar } from '../components/layout/ChatAssistantSidebar';
@@ -169,24 +169,18 @@ export const Home = () => {
   };
 
   return (
-    <div className="flex gap-6 h-[calc(100vh-8rem)]">
-      <div className="flex-shrink-0">
+    <div className="flex gap-6 h-full p-6">
+      <div className="flex-shrink-0 h-full">
         <ChatAssistantSidebar onNewChat={handleNewConversation} />
       </div>
 
-      <div className="flex-1 bg-gradient-to-br from-lime-50/30 via-white/90 to-green-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
+      <div className="flex-1 h-full bg-gradient-to-br from-lime-50/30 via-white/90 to-green-50/30 backdrop-blur-sm rounded-2xl border shadow-sm relative overflow-hidden" style={{ borderColor: 'var(--card-border)' }}>
         {/* Header */}
-        <div className="flex items-center justify-between px-8 py-4 border-b border-gray-100">
+        <div className="flex items-center px-8 py-4 border-b border-gray-100">
           <button className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-50 rounded-lg transition-all">
             <span className="text-sm font-semibold text-gray-700">LLM v5</span>
             <ChevronDown className="h-4 w-4 text-gray-500" />
           </button>
-
-          <div className="flex items-center space-x-3">
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-all">
-              <MoreVertical className="h-5 w-5 text-gray-600" />
-            </button>
-          </div>
         </div>
 
         {/* Main Content */}

@@ -11,11 +11,11 @@ export const AppLayout = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   return (
-    <div className="min-h-screen gradient-bg">
+    <div className="min-h-screen gradient-bg flex flex-col">
       <Topbar onProfileClick={() => setShowProfileModal(true)} />
       <NavBar />
 
-      <main className="p-6 md:p-8">
+      <main className={isChatPage ? "flex-1 overflow-hidden" : "p-6 md:p-8"}>
         <Outlet />
       </main>
 

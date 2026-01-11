@@ -1,13 +1,7 @@
 import {
   Plus,
-  MessageSquare,
   FolderKanban,
-  Clock,
-  BookOpen,
-  Folder,
-  Settings,
-  Globe,
-  ChevronRight
+  Clock
 } from 'lucide-react';
 
 interface ChatAssistantSidebarProps {
@@ -40,19 +34,6 @@ export const ChatAssistantSidebar = ({ onNewChat }: ChatAssistantSidebarProps) =
               <span className="text-sm font-medium text-gray-700">Projet</span>
             </button>
           </div>
-        </div>
-      </div>
-
-      <div className="p-4 border-t border-gray-100">
-        <div className="flex items-center space-x-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 cursor-pointer transition-all duration-150">
-          <div className="h-10 w-10 bg-gradient-to-br from-lime-400 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-            <span className="text-white font-bold text-sm">MN</span>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-gray-900 truncate">Maxim Nuel</p>
-            <p className="text-xs text-gray-500 truncate">hey@agency.com</p>
-          </div>
-          <ChevronRight className="h-4 w-4 text-gray-400" />
         </div>
       </div>
     </div>
