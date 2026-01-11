@@ -47,13 +47,15 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="flex gap-6">
-      <DashboardSidebar
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-      />
+    <div className="flex gap-6 h-[calc(100vh-8rem)]">
+      <div className="flex-shrink-0">
+        <DashboardSidebar
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+      </div>
 
-      <div className="flex-1 space-y-8">
+      <div className="flex-1 overflow-y-auto space-y-8 pr-2">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {isLoading ? (
